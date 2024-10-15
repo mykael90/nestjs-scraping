@@ -1,0 +1,33 @@
+services:
+  app-nestscraping:
+    build: .
+    container_name: nestscraping
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    env_file:
+      - .env
+    volumes:
+      - .:/home/node/nestjs-scraping
+    depends_on:
+      - mongo
+
+  mongo:
+    build: .docker/mongo
+    container_name: mongo
+    ports:
+    - "27017:27017"
+    env_file:
+      - .env
+    volumes:
+      - ./data/mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - .env
+

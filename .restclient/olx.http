@@ -1,0 +1,13 @@
+### Variables
+@urlLocal = http://localhost:3000/olx
+@contentType = application/json
+
+### Show all from mae-luiza 
+GET {{urlLocal}}/quintas
+
+### Get all from mae-luiza (show and persist on mongo)
+GET {{urlLocal}}/scraping/ribeira
+
+### Get all from mae-luiza (verifica cada registro se existe no banco antes de add)
+GET {{urlLocal}}/scrapingslow/capim-macio
+

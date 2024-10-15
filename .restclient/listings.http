@@ -1,0 +1,755 @@
+### Variables
+@urlLocal = http://localhost:3000/listings/olx
+@contentType = application/json
+
+### POST listing
+POST {{urlLocal}}
+Content-Type: {{contentType}}
+
+  {
+    "_id": "670e7348effb00ba08f158be",
+    "subject": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE ",
+    "title": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE ",
+    "price": "R$ 300.000",
+    "listId": "1335595530",
+    "lastBumpAgeSecs": "127698",
+    "oldPrice": "R$ 315.000",
+    "professionalAd": false,
+    "priceReductionBadge": false,
+    "userGoogleReviewsVisible": false,
+    "userGoogleRating": null,
+    "isFeatured": true,
+    "listingCategoryId": "1001",
+    "images": [
+      {
+        "original": "https://img.olx.com.br/images/65/654412803915209.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE ",
+        "originalWebP": "https://img.olx.com.br/images/65/654412803915209.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/65/654412803915209.jpg",
+        "_id": "670e7348effb00ba08f158bf"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/632436327578936.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 2",
+        "originalWebP": "https://img.olx.com.br/images/63/632436327578936.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/632436327578936.jpg",
+        "_id": "670e7348effb00ba08f158c0"
+      },
+      {
+        "original": "https://img.olx.com.br/images/64/645421200555293.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 3",
+        "originalWebP": "https://img.olx.com.br/images/64/645421200555293.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/64/645421200555293.jpg",
+        "_id": "670e7348effb00ba08f158c1"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/632478202428617.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 4",
+        "originalWebP": "https://img.olx.com.br/images/63/632478202428617.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/632478202428617.jpg",
+        "_id": "670e7348effb00ba08f158c2"
+      },
+      {
+        "original": "https://img.olx.com.br/images/62/623408322965655.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 5",
+        "originalWebP": "https://img.olx.com.br/images/62/623408322965655.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/62/623408322965655.jpg",
+        "_id": "670e7348effb00ba08f158c3"
+      },
+      {
+        "original": "https://img.olx.com.br/images/62/620475562877662.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 6",
+        "originalWebP": "https://img.olx.com.br/images/62/620475562877662.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/62/620475562877662.jpg",
+        "_id": "670e7348effb00ba08f158c4"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/637498562347613.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 7",
+        "originalWebP": "https://img.olx.com.br/images/63/637498562347613.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/637498562347613.jpg",
+        "_id": "670e7348effb00ba08f158c5"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/635466325802122.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 8",
+        "originalWebP": "https://img.olx.com.br/images/63/635466325802122.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/635466325802122.jpg",
+        "_id": "670e7348effb00ba08f158c6"
+      },
+      {
+        "original": "https://img.olx.com.br/images/62/627418200948077.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 9",
+        "originalWebP": "https://img.olx.com.br/images/62/627418200948077.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/62/627418200948077.jpg",
+        "_id": "670e7348effb00ba08f158c7"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/636456689411540.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 10",
+        "originalWebP": "https://img.olx.com.br/images/63/636456689411540.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/636456689411540.jpg",
+        "_id": "670e7348effb00ba08f158c8"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/633415925693599.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 11",
+        "originalWebP": "https://img.olx.com.br/images/63/633415925693599.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/633415925693599.jpg",
+        "_id": "670e7348effb00ba08f158c9"
+      },
+      {
+        "original": "https://img.olx.com.br/images/63/638408922641504.jpg",
+        "originalAlt": "Casa em Neopolis 3 Qts e suite OPORTUNIDADE  - Foto 12",
+        "originalWebP": "https://img.olx.com.br/images/63/638408922641504.webp",
+        "thumbnail": "https://img.olx.com.br/thumbs/63/638408922641504.jpg",
+        "_id": "670e7348effb00ba08f158ca"
+      }
+    ],
+    "videoCount": 0,
+    "videos": [],
+    "isChatEnabled": true,
+    "fixedOnTop": true,
+    "url": "https://rn.olx.com.br/rio-grande-do-norte/imoveis/casa-em-neopolis-3-qts-e-suite-oportunidade-1335595530",
+    "thumbnail": "https://img.olx.com.br/thumbs256x256/65/654412803915209.jpg",
+    "date": "2024-10-13 22:56:21.000",
+    "imageCount": 12,
+    "location": "Natal, Neópolis",
+    "locationDetails": {
+      "municipality": "Natal",
+      "ddd": "84",
+      "neighbourhood": "Neópolis",
+      "uf": "RN",
+      "_id": "670e7348effb00ba08f158cb"
+    },
+    "category": "Casas",
+    "searchCategoryLevelZero": 1000,
+    "searchCategoryLevelOne": 1001,
+    "properties": [
+      {
+        "name": "category",
+        "label": "Categoria",
+        "value": "Casas",
+        "_id": "670e7348effb00ba08f158cc"
+      },
+      {
+        "name": "real_estate_type",
+        "label": "Tipo",
+        "value": "Venda - casa em rua pública",
+        "_id": "670e7348effb00ba08f158cd"
+      },
+      {
+        "name": "condominio",
+        "label": "Condomínio",
+        "value": "R$ 0",
+        "_id": "670e7348effb00ba08f158ce"
+      },
+      {
+        "name": "size",
+        "label": "Área construída",
+        "value": "200m²",
+        "_id": "670e7348effb00ba08f158cf"
+      },
+      {
+        "name": "rooms",
+        "label": "Quartos",
+        "value": "4",
+        "_id": "670e7348effb00ba08f158d0"
+      },
+      {
+        "name": "bathrooms",
+        "label": "Banheiros",
+        "value": "3",
+        "_id": "670e7348effb00ba08f158d1"
+      },
+      {
+        "name": "garage_spaces",
+        "label": "Vagas na garagem",
+        "value": "2",
+        "_id": "670e7348effb00ba08f158d2"
+      },
+      {
+        "name": "re_features",
+        "label": "Detalhes do imóvel",
+        "value": "Área de serviço, Quarto de serviço",
+        "_id": "670e7348effb00ba08f158d3"
+      },
+      {
+        "name": "re_types",
+        "label": "Tipo",
+        "value": "Padrão",
+        "_id": "670e7348effb00ba08f158d4"
+      }
+    ],
+    "accountActivityStatus": {
+      "isOnline": false,
+      "_id": "670e7348effb00ba08f158d5"
+    },
+    "olxPay": {
+      "enabled": false,
+      "dynamicBadgeProps": [],
+      "transactionalBadges": [],
+      "installments": [],
+      "isCategoryEligible": false,
+      "_id": "670e7348effb00ba08f158d6"
+    },
+    "olxPayBadgeEnabled": false,
+    "olxDelivery": {
+      "enabled": false,
+      "weight": null,
+      "_id": "670e7348effb00ba08f158d7"
+    },
+    "olxDeliveryBadgeEnabled": false,
+    "installments": false,
+    "isFavorited": false,
+    "hasRealEstateHighlight": false,
+    "createdAt": "2024-10-15 10:51:04.428",
+    "updatedAt": "2024-10-15 10:51:04.428",
+    "__v": 0
+  }
+
+### POST listing bulk
+POST {{urlLocal}}/bulk
+Content-Type: {{contentType}}
+
+[
+    {
+      "subject": "Casa em Mãe Luiza - Natal - RN 70 mil",
+      "title": "Casa em Mãe Luiza - Natal - RN 70 mil",
+      "price": "R$ 100.000",
+      "listId": 1342822586,
+      "lastBumpAgeSecs": "0",
+      "oldPrice": null,
+      "professionalAd": true,
+      "priceReductionBadge": false,
+      "userGoogleReviewsVisible": false,
+      "userGoogleRating": null,
+      "isFeatured": false,
+      "listingCategoryId": "1001",
+      "images": [
+        {
+          "original": "https://img.olx.com.br/images/13/131411090048048.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil",
+          "originalWebP": "https://img.olx.com.br/images/13/131411090048048.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/131411090048048.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/133478338241944.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 2",
+          "originalWebP": "https://img.olx.com.br/images/13/133478338241944.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/133478338241944.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/132408693945205.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 3",
+          "originalWebP": "https://img.olx.com.br/images/13/132408693945205.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/132408693945205.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/138413453902677.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 4",
+          "originalWebP": "https://img.olx.com.br/images/13/138413453902677.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/138413453902677.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/139451098475586.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 5",
+          "originalWebP": "https://img.olx.com.br/images/13/139451098475586.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/139451098475586.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/131486090807118.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 6",
+          "originalWebP": "https://img.olx.com.br/images/13/131486090807118.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/131486090807118.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/137489810869427.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 7",
+          "originalWebP": "https://img.olx.com.br/images/13/137489810869427.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/137489810869427.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/137472812305832.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 8",
+          "originalWebP": "https://img.olx.com.br/images/13/137472812305832.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/137472812305832.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/131492216231090.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 9",
+          "originalWebP": "https://img.olx.com.br/images/13/131492216231090.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/131492216231090.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/137415333212654.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 10",
+          "originalWebP": "https://img.olx.com.br/images/13/137415333212654.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/137415333212654.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/137433337578273.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 11",
+          "originalWebP": "https://img.olx.com.br/images/13/137433337578273.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/137433337578273.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/139403937657817.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 12",
+          "originalWebP": "https://img.olx.com.br/images/13/139403937657817.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/139403937657817.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/137459094551385.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 13",
+          "originalWebP": "https://img.olx.com.br/images/13/137459094551385.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/137459094551385.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/138483452208542.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 14",
+          "originalWebP": "https://img.olx.com.br/images/13/138483452208542.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/138483452208542.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/132497334500222.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 15",
+          "originalWebP": "https://img.olx.com.br/images/13/132497334500222.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/132497334500222.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/134439571044986.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 16",
+          "originalWebP": "https://img.olx.com.br/images/13/134439571044986.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/134439571044986.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/138485938560669.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 17",
+          "originalWebP": "https://img.olx.com.br/images/13/138485938560669.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/138485938560669.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/136463693854148.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 18",
+          "originalWebP": "https://img.olx.com.br/images/13/136463693854148.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/136463693854148.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/139435576277225.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 19",
+          "originalWebP": "https://img.olx.com.br/images/13/139435576277225.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/139435576277225.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/13/138459334439311.jpg",
+          "originalAlt": "Casa em Mãe Luiza - Natal - RN 70 mil - Foto 20",
+          "originalWebP": "https://img.olx.com.br/images/13/138459334439311.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/13/138459334439311.jpg"
+        }
+      ],
+      "videoCount": 0,
+      "videos": [],
+      "isChatEnabled": false,
+      "fixedOnTop": false,
+      "url": "https://rn.olx.com.br/rio-grande-do-norte/imoveis/casa-em-mae-luiza-natal-rn-70-mil-1342822586",
+      "thumbnail": "https://img.olx.com.br/thumbs256x256/13/131411090048048.jpg",
+      "date": 1727988909,
+      "imageCount": 20,
+      "location": "Natal, Mãe Luiza",
+      "locationDetails": {
+        "municipality": "Natal",
+        "ddd": "84",
+        "neighbourhood": "Mãe Luiza",
+        "uf": "RN"
+      },
+      "category": "Casas",
+      "searchCategoryLevelZero": 1000,
+      "searchCategoryLevelOne": 1001,
+      "properties": [
+        {
+          "name": "category",
+          "label": "Categoria",
+          "value": "Casas"
+        },
+        {
+          "name": "real_estate_type",
+          "label": "Tipo",
+          "value": "Venda - casa em rua pública"
+        },
+        {
+          "name": "condominio",
+          "label": "Condomínio",
+          "value": "R$ 0"
+        },
+        {
+          "name": "iptu",
+          "label": "IPTU",
+          "value": "R$ 0"
+        },
+        {
+          "name": "size",
+          "label": "Área construída",
+          "value": "100m²"
+        },
+        {
+          "name": "rooms",
+          "label": "Quartos",
+          "value": "3"
+        },
+        {
+          "name": "bathrooms",
+          "label": "Banheiros",
+          "value": "2"
+        },
+        {
+          "name": "garage_spaces",
+          "label": "Vagas na garagem",
+          "value": "1"
+        },
+        {
+          "name": "re_types",
+          "label": "Tipo",
+          "value": "Padrão"
+        }
+      ],
+      "accountActivityStatus": {
+        "isOnline": false
+      },
+      "position": 0,
+      "olxPay": {
+        "enabled": false,
+        "dynamicBadgeProps": [],
+        "transactionalBadges": [],
+        "installments": [],
+        "isCategoryEligible": false
+      },
+      "olxPayBadgeEnabled": false,
+      "olxDelivery": {
+        "enabled": false,
+        "weight": null
+      },
+      "olxDeliveryBadgeEnabled": false,
+      "installments": false,
+      "vehicleReport": {
+        "enabled": false,
+        "title": null,
+        "description": null,
+        "reportLink": null,
+        "reportTitle": null,
+        "tags": null
+      },
+      "vehicleTags": [],
+      "vehicleHasInspectionReport": false,
+      "vehiclePills": null,
+      "isFavorited": false,
+      "hasRealEstateHighlight": false,
+      "trackingSpecificData": [
+        {
+          "key": "region",
+          "value": "Rio Grande do Norte"
+        }
+      ],
+      "carSpecificData": null
+    },
+    {
+      "subject": "Casa de praia ",
+      "title": "Casa de praia ",
+      "price": "R$ 75.000",
+      "listId": 1335372922,
+      "lastBumpAgeSecs": "0",
+      "oldPrice": null,
+      "professionalAd": false,
+      "priceReductionBadge": false,
+      "userGoogleReviewsVisible": false,
+      "userGoogleRating": null,
+      "isFeatured": false,
+      "listingCategoryId": "1001",
+      "images": [
+        {
+          "original": "https://img.olx.com.br/images/63/634416565807062.jpg",
+          "originalAlt": "Casa de praia ",
+          "originalWebP": "https://img.olx.com.br/images/63/634416565807062.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/63/634416565807062.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/61/617450808116396.jpg",
+          "originalAlt": "Casa de praia  - Foto 2",
+          "originalWebP": "https://img.olx.com.br/images/61/617450808116396.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/61/617450808116396.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/63/633499563334586.jpg",
+          "originalAlt": "Casa de praia  - Foto 3",
+          "originalWebP": "https://img.olx.com.br/images/63/633499563334586.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/63/633499563334586.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/62/624405683463703.jpg",
+          "originalAlt": "Casa de praia  - Foto 4",
+          "originalWebP": "https://img.olx.com.br/images/62/624405683463703.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/62/624405683463703.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/60/604416083005866.jpg",
+          "originalAlt": "Casa de praia  - Foto 5",
+          "originalWebP": "https://img.olx.com.br/images/60/604416083005866.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/60/604416083005866.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/62/627477800425077.jpg",
+          "originalAlt": "Casa de praia  - Foto 6",
+          "originalWebP": "https://img.olx.com.br/images/62/627477800425077.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/62/627477800425077.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/62/623423922680691.jpg",
+          "originalAlt": "Casa de praia  - Foto 7",
+          "originalWebP": "https://img.olx.com.br/images/62/623423922680691.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/62/623423922680691.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/60/608430324058255.jpg",
+          "originalAlt": "Casa de praia  - Foto 8",
+          "originalWebP": "https://img.olx.com.br/images/60/608430324058255.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/60/608430324058255.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/60/603489448969235.jpg",
+          "originalAlt": "Casa de praia  - Foto 9",
+          "originalWebP": "https://img.olx.com.br/images/60/603489448969235.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/60/603489448969235.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/60/601443926636895.jpg",
+          "originalAlt": "Casa de praia  - Foto 10",
+          "originalWebP": "https://img.olx.com.br/images/60/601443926636895.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/60/601443926636895.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/59/591407560475238.jpg",
+          "originalAlt": "Casa de praia  - Foto 11",
+          "originalWebP": "https://img.olx.com.br/images/59/591407560475238.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/59/591407560475238.jpg"
+        }
+      ],
+      "videoCount": 0,
+      "videos": [],
+      "isChatEnabled": true,
+      "fixedOnTop": false,
+      "url": "https://rn.olx.com.br/rio-grande-do-norte/imoveis/casa-de-praia-1335372922",
+      "thumbnail": "https://img.olx.com.br/thumbs256x256/63/634416565807062.jpg",
+      "date": 1725568056,
+      "imageCount": 11,
+      "location": "Natal, Mãe Luiza",
+      "locationDetails": {
+        "municipality": "Natal",
+        "ddd": "84",
+        "neighbourhood": "Mãe Luiza",
+        "uf": "RN"
+      },
+      "category": "Casas",
+      "searchCategoryLevelZero": 1000,
+      "searchCategoryLevelOne": 1001,
+      "properties": [
+        {
+          "name": "category",
+          "label": "Categoria",
+          "value": "Casas"
+        },
+        {
+          "name": "real_estate_type",
+          "label": "Tipo",
+          "value": "Venda - casa em rua pública"
+        },
+        {
+          "name": "rooms",
+          "label": "Quartos",
+          "value": "2"
+        },
+        {
+          "name": "bathrooms",
+          "label": "Banheiros",
+          "value": "2"
+        },
+        {
+          "name": "garage_spaces",
+          "label": "Vagas na garagem",
+          "value": "2"
+        },
+        {
+          "name": "re_features",
+          "label": "Detalhes do imóvel",
+          "value": "Área de serviço, Churrasqueira, Quarto de serviço, Varanda"
+        },
+        {
+          "name": "re_types",
+          "label": "Tipo",
+          "value": "Padrão"
+        }
+      ],
+      "accountActivityStatus": {
+        "isOnline": false
+      },
+      "position": 1,
+      "olxPay": {
+        "enabled": false,
+        "dynamicBadgeProps": [],
+        "transactionalBadges": [],
+        "installments": [],
+        "isCategoryEligible": false
+      },
+      "olxPayBadgeEnabled": false,
+      "olxDelivery": {
+        "enabled": false,
+        "weight": null
+      },
+      "olxDeliveryBadgeEnabled": false,
+      "installments": false,
+      "vehicleReport": {
+        "enabled": false,
+        "title": null,
+        "description": null,
+        "reportLink": null,
+        "reportTitle": null,
+        "tags": null
+      },
+      "vehicleTags": [],
+      "vehicleHasInspectionReport": false,
+      "vehiclePills": null,
+      "isFavorited": false,
+      "hasRealEstateHighlight": false,
+      "trackingSpecificData": [
+        {
+          "key": "region",
+          "value": "Rio Grande do Norte"
+        }
+      ],
+      "carSpecificData": null
+    },
+    {
+      "subject": "Oportunidade única Vendo casa em Mãe Luiza",
+      "title": "Oportunidade única Vendo casa em Mãe Luiza",
+      "price": "R$ 120.000",
+      "listId": 1332454611,
+      "lastBumpAgeSecs": "0",
+      "oldPrice": "R$ 130.000",
+      "professionalAd": false,
+      "priceReductionBadge": false,
+      "userGoogleReviewsVisible": false,
+      "userGoogleRating": null,
+      "isFeatured": false,
+      "listingCategoryId": "1001",
+      "images": [
+        {
+          "original": "https://img.olx.com.br/images/21/215493555834690.jpg",
+          "originalAlt": "Oportunidade única Vendo casa em Mãe Luiza",
+          "originalWebP": "https://img.olx.com.br/images/21/215493555834690.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/21/215493555834690.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/20/202494550991267.jpg",
+          "originalAlt": "Oportunidade única Vendo casa em Mãe Luiza - Foto 2",
+          "originalWebP": "https://img.olx.com.br/images/20/202494550991267.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/20/202494550991267.jpg"
+        },
+        {
+          "original": "https://img.olx.com.br/images/21/213476194053646.jpg",
+          "originalAlt": "Oportunidade única Vendo casa em Mãe Luiza - Foto 3",
+          "originalWebP": "https://img.olx.com.br/images/21/213476194053646.webp",
+          "thumbnail": "https://img.olx.com.br/thumbs/21/213476194053646.jpg"
+        }
+      ],
+      "videoCount": 0,
+      "videos": [],
+      "isChatEnabled": true,
+      "fixedOnTop": false,
+      "url": "https://rn.olx.com.br/rio-grande-do-norte/imoveis/oportunidade-unica-vendo-casa-em-mae-luiza-1332454611",
+      "thumbnail": "https://img.olx.com.br/thumbs256x256/21/215493555834690.jpg",
+      "date": 1724720814,
+      "imageCount": 3,
+      "location": "Natal, Mãe Luiza",
+      "locationDetails": {
+        "municipality": "Natal",
+        "ddd": "84",
+        "neighbourhood": "Mãe Luiza",
+        "uf": "RN"
+      },
+      "category": "Casas",
+      "searchCategoryLevelZero": 1000,
+      "searchCategoryLevelOne": 1001,
+      "properties": [
+        {
+          "name": "category",
+          "label": "Categoria",
+          "value": "Casas"
+        },
+        {
+          "name": "real_estate_type",
+          "label": "Tipo",
+          "value": "Venda - casa em rua pública"
+        },
+        {
+          "name": "rooms",
+          "label": "Quartos",
+          "value": "3"
+        },
+        {
+          "name": "bathrooms",
+          "label": "Banheiros",
+          "value": "2"
+        },
+        {
+          "name": "re_features",
+          "label": "Detalhes do imóvel",
+          "value": "Área de serviço"
+        },
+        {
+          "name": "re_types",
+          "label": "Tipo",
+          "value": "Padrão"
+        }
+      ],
+      "accountActivityStatus": {
+        "isOnline": false
+      },
+      "position": 2,
+      "olxPay": {
+        "enabled": false,
+        "dynamicBadgeProps": [],
+        "transactionalBadges": [],
+        "installments": [],
+        "isCategoryEligible": false
+      },
+      "olxPayBadgeEnabled": false,
+      "olxDelivery": {
+        "enabled": false,
+        "weight": null
+      },
+      "olxDeliveryBadgeEnabled": false,
+      "installments": false,
+      "vehicleReport": {
+        "enabled": false,
+        "title": null,
+        "description": null,
+        "reportLink": null,
+        "reportTitle": null,
+        "tags": null
+      },
+      "vehicleTags": [],
+      "vehicleHasInspectionReport": false,
+      "vehiclePills": null,
+      "isFavorited": false,
+      "hasRealEstateHighlight": false,
+      "trackingSpecificData": [
+        {
+          "key": "region",
+          "value": "Rio Grande do Norte"
+        }
+      ],
+      "carSpecificData": null
+    }
+  ]
+
+### GET all
+GET {{urlLocal}}
