@@ -28,7 +28,7 @@ export class OlxService {
       await page.goto(url);
 
       // Captura de tela para verificar o estado da página
-      await page.screenshot({ path: 'screenshot.png', fullPage: true });
+      // await page.screenshot({ path: 'screenshot.png', fullPage: true });
 
       await page.waitForSelector('script[id="__NEXT_DATA__"]', {
         timeout: 30 * 1000,
@@ -138,5 +138,40 @@ export class OlxService {
     this.logger.log(`newAds`, newAds.length);
 
     return await this.listingsService.createMany(newAds);
+  }
+
+  async showProperties(url: string) {
+    const browser = await this.puppeteerService.launchBrowser();
+    const page = await browser.newPage();
+
+    // Definir um User-Agent realista para evitar blocks
+    await page.setUserAgent(
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
+    );
+
+    try {
+      await page.goto(url);
+
+      // Captura de tela para verificar o estado da página
+      await page.screenshot({ path: 'screenshot.png', fullPage: true });
+
+      await page.waitForSelector('#initial-data', {
+        timeout: 30 * 1000,
+      });
+
+      // Localiza o elemento pelo ID
+      const locator = page.locator('#initial-data');
+
+      // Aguarda o elemento estar disponível
+      await locator.wait();
+
+      this.logger.log('Valor do atributo data-sjon:', JSON.stringify(locator));
+
+      return;
+    } catch (error) {
+      console.error('Error while scraping job listings:', error);
+    } finally {
+      await browser.close();
+    }
   }
 }

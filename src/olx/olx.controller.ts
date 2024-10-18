@@ -8,6 +8,9 @@ export class OlxController {
   private readonly entryPoint =
     'https://www.olx.com.br/imoveis/venda/casas/estado-rn/rio-grande-do-norte/natal';
 
+  private readonly propertyEntryPoint =
+    'https://rn.olx.com.br/rio-grande-do-norte/imoveis';
+
   constructor(private readonly olxService: OlxService) {}
 
   @Get(':param')
@@ -31,5 +34,14 @@ export class OlxController {
     this.logger.log(`param: ${param}`);
 
     return this.olxService.getListingsSlow(`${this.entryPoint}/${param}`);
+  }
+
+  @Get('properties/:param')
+  showProperties(@Param('param') param: any) {
+    this.logger.log(`param: ${param}`);
+
+    return this.olxService.showProperties(
+      `${this.propertyEntryPoint}/${param}`,
+    );
   }
 }
