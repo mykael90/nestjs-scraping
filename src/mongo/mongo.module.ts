@@ -1,6 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ListingSchema } from '../olx/listings/entities/listing.interface';
+import { LocationSchema } from '../olx/locations/entities/location.entity';
 
 @Global()
 @Module({
@@ -36,7 +37,10 @@ import { ListingSchema } from '../olx/listings/entities/listing.interface';
         return connection;
       },
     }),
-    MongooseModule.forFeature([{ name: 'Listing', schema: ListingSchema }]),
+    MongooseModule.forFeature([
+      { name: 'Listing', schema: ListingSchema },
+      { name: 'Location', schema: LocationSchema },
+    ]),
   ],
   exports: [MongooseModule], // Exporta o MongooseModule para ser usado em outros módulos
 })

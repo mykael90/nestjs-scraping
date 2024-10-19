@@ -5,7 +5,7 @@ import puppeteer from 'puppeteer';
 export class PuppeteerService {
   async launchBrowser() {
     return await puppeteer.launch({
-      headless: false,
+      headless: true,
       timeout: 20 * 1000,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });

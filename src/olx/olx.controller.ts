@@ -1,4 +1,11 @@
-import { Controller, Get, Logger, Param, ParseEnumPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Logger,
+  Param,
+  ParseEnumPipe,
+  Query,
+} from '@nestjs/common';
 import { OlxService } from './olx.service';
 import { Neighbourhood } from './enum/neighbourhood.enum';
 
@@ -12,6 +19,23 @@ export class OlxController {
     'https://rn.olx.com.br/rio-grande-do-norte/imoveis';
 
   constructor(private readonly olxService: OlxService) {}
+
+  @Get('properties')
+  showProperties(@Query('url') url: any) {
+    this.logger.log(`param: ${url}`);
+
+    // return this.olxService.showProperties(
+    //   `${this.propertyEntryPoint}/${param}`,
+    // );
+
+    return this.olxService.showProperties(url);
+  }
+
+  @Get('scrapingall')
+  getListingsAllSlow() {
+    this.logger.log(`Getting all listings...`);
+    return this.olxService.getListingsAllSlow();
+  }
 
   @Get(':param')
   showListings(@Param('param', new ParseEnumPipe(Neighbourhood)) param: any) {
@@ -34,14 +58,5 @@ export class OlxController {
     this.logger.log(`param: ${param}`);
 
     return this.olxService.getListingsSlow(`${this.entryPoint}/${param}`);
-  }
-
-  @Get('properties/:param')
-  showProperties(@Param('param') param: any) {
-    this.logger.log(`param: ${param}`);
-
-    return this.olxService.showProperties(
-      `${this.propertyEntryPoint}/${param}`,
-    );
   }
 }

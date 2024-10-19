@@ -3,11 +3,18 @@
 @contentType = application/json
 
 ### Show all from mae-luiza 
-GET {{urlLocal}}/quintas
+GET {{urlLocal}}/mae-luiza
 
 ### Get all from mae-luiza (show and persist on mongo)
 GET {{urlLocal}}/scraping/ribeira
 
 ### Get all from mae-luiza (verifica cada registro se existe no banco antes de add)
-GET {{urlLocal}}/scrapingslow/capim-macio
+GET {{urlLocal}}/scrapingslow/dix-sept-rosado
+
+### Get all from all
+GET {{urlLocal}}/scrapingall
+
+
+### Get informations from a property
+GET {{urlLocal}}/properties?url=https://rn.olx.com.br/rio-grande-do-norte/imoveis/rs-vende-se-casa-em-condominio-1345481883
 

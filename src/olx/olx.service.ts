@@ -4,10 +4,12 @@ import { ListingsService } from './listings/listings.service';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Listing } from './listings/entities/listing.interface';
-import { CreateListingDto } from './listings/dto/create-listing.dto';
+import { Neighbourhood } from './enum/neighbourhood.enum';
 
 @Injectable()
 export class OlxService {
+  private readonly entryPoint =
+    'https://www.olx.com.br/imoveis/venda/casas/estado-rn/rio-grande-do-norte/natal';
   private readonly logger = new Logger(OlxService.name);
 
   constructor(
@@ -117,15 +119,32 @@ export class OlxService {
     const { ads } = listings;
 
     // Busca os registros da localização
-    const dbAds = await this.listingModel.find({
-      location: ads[0].location,
-    });
+    const dbAds = await this.listingModel
+      .find
+      //   {
+      //   location: ads[0].location,
+      // }
+      ();
 
     this.logger.log(`dbAds`, dbAds.length);
 
     //verifica se ads estão no banco
     const newAds = ads.filter(
-      (ad: any) => !dbAds.some((dbAd) => dbAd.listId == ad.listId),
+      (ad: any) =>
+        !dbAds.find((dbAd) => Number(dbAd.listId) === Number(ad.listId)),
+    );
+
+    this.logger.log(
+      `ads`,
+      ads.map((ad) => ad.listId),
+    );
+    this.logger.log(
+      `dbAds`,
+      dbAds.map((dbAd) => dbAd.listId),
+    );
+    this.logger.log(
+      `newAds`,
+      newAds.map((ad) => ad.listId),
     );
 
     this.logger.log(`newAds`, newAds.length);
@@ -140,6 +159,18 @@ export class OlxService {
     return await this.listingsService.createMany(newAds);
   }
 
+  async getListingsAllSlow() {
+    this.logger.log(`Getting all listings...`);
+    const neighbourhoods = Object.values(Neighbourhood);
+
+    for (const neighbourhood of neighbourhoods) {
+      this.logger.log(`Getting listings from: ${neighbourhood}`);
+      await this.getListingsSlow(`${this.entryPoint}/${neighbourhood}`);
+
+      await new Promise((resolve) => setTimeout(resolve, 5 * 1000));
+    }
+  }
+
   async showProperties(url: string) {
     const browser = await this.puppeteerService.launchBrowser();
     const page = await browser.newPage();
@@ -152,22 +183,25 @@ export class OlxService {
     try {
       await page.goto(url);
 
+      this.logger.log('Page title:', await page.title());
+
       // Captura de tela para verificar o estado da página
-      await page.screenshot({ path: 'screenshot.png', fullPage: true });
+      // await page.screenshot({ path: 'screenshot.png', fullPage: true });
 
-      await page.waitForSelector('#initial-data', {
-        timeout: 30 * 1000,
-      });
+      // Localiza o elemento pelo ID e aguarda está disponível
+      await page.locator('#initial-data').wait();
 
-      // Localiza o elemento pelo ID
-      const locator = page.locator('#initial-data');
+      const dataElement = await page.$('#initial-data');
 
-      // Aguarda o elemento estar disponível
-      await locator.wait();
+      const data = await page.evaluate(
+        (element) => element.getAttribute('data-json'),
+        dataElement,
+      ); // Obtenha o atributo desejado
 
-      this.logger.log('Valor do atributo data-sjon:', JSON.stringify(locator));
+      // Transformar o JSON em um objeto JavaScript e retornar apenas a chave ad
+      const ad = JSON.parse(data).ad;
 
-      return;
+      return ad;
     } catch (error) {
       console.error('Error while scraping job listings:', error);
     } finally {
