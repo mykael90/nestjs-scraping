@@ -1,10 +1,11 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { ConsoleLogger, Injectable, Logger } from '@nestjs/common';
 import { PuppeteerService } from '../puppeteer/puppeteer.service';
 import { ListingsService } from './listings/listings.service';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Listing } from './listings/entities/listing.interface';
+import { Model, Types } from 'mongoose';
+import { Listing } from './listings/entities/listing.entity';
 import { Neighbourhood } from './enum/neighbourhood.enum';
+import { LocationsService } from './locations/locations.service';
 
 @Injectable()
 export class OlxService {
@@ -16,8 +17,10 @@ export class OlxService {
     private readonly puppeteerService: PuppeteerService,
     private readonly listingsService: ListingsService,
     @InjectModel('Listing') private readonly listingModel: Model<Listing>,
+    private readonly locationService: LocationsService,
   ) {}
-  async showListings(url: string) {
+  async showListings(param: string) {
+    const url = `${this.entryPoint}/${param}`;
     const browser = await this.puppeteerService.launchBrowser();
     const page = await browser.newPage();
 
@@ -58,9 +61,15 @@ export class OlxService {
         ads.push(...props.ads.filter((ad: any) => ad.subject));
       }
 
-      this.logger.log(totalOfAds, numberOfPages, ads.length);
+      this.logger.log(
+        `totalOfAds ${totalOfAds}`,
+        `numberOfPages ${numberOfPages}`,
+        `adsLength ${ads.length}`,
+      );
 
-      return { totalOfAds, numberOfPages, ads };
+      const location = await this.locationService.findOneByNeighborhood(param);
+
+      return { totalOfAds, numberOfPages, ads, location };
     } catch (error) {
       console.error('Error while scraping job listings:', error);
     } finally {
@@ -68,49 +77,9 @@ export class OlxService {
     }
   }
 
-  async getListings(url: string) {
-    const listings = await this.showListings(url);
-
-    if (!listings) {
-      return;
-    }
-
-    const { ads } = listings;
-
-    // Busca o último registro para cada localização
-    const lastListing = await this.listingModel
-      .findOne({
-        location: ads[0].location,
-      })
-      .sort({ date: -1 });
-
-    if (!lastListing) {
-      //transform date
-      ads.forEach((ad: any) => {
-        ad.date = new Date(ad.date * 1000);
-      });
-      return await this.listingsService.createMany(ads);
-    }
-
-    const lastDate = new Date(lastListing.date).getTime();
-
-    this.logger.log(`lastDate`, lastDate, Number(ads[0].date));
-
-    //compare lastDate with date of ads
-    const newAds = ads.filter((ad: any) => Number(ad.date) > lastDate);
-
-    //transform date
-    newAds.forEach((ad: any) => {
-      ad.date = new Date(ad.date * 1000);
-    });
-
-    this.logger.log(`newAds`, newAds.length);
-
-    return await this.listingsService.createMany(newAds);
-  }
-
-  async getListingsSlow(url: string) {
-    const listings = await this.showListings(url);
+  async getListings(param: string) {
+    const listings = await this.showListings(param);
+    const locationId = new Types.ObjectId(listings.location._id);
 
     if (!listings) {
       return;
@@ -120,55 +89,67 @@ export class OlxService {
 
     // Busca os registros da localização
     const dbAds = await this.listingModel
-      .find
-      //   {
-      //   location: ads[0].location,
-      // }
-      ();
+      .find()
+      .where('locationId')
+      .in([locationId])
+      .where('deletedAt')
+      .equals(null);
 
-    this.logger.log(`dbAds`, dbAds.length);
+    this.logger.log(`dbAds length: ${dbAds.length}`);
 
     //verifica se ads estão no banco
-    const newAds = ads.filter(
+    const newAds: Listing[] = ads.filter(
       (ad: any) =>
-        !dbAds.find((dbAd) => Number(dbAd.listId) === Number(ad.listId)),
+        !dbAds.find(
+          (dbAd: Listing) => dbAd.listId.toString() === ad.listId.toString(),
+        ),
     );
 
-    this.logger.log(
-      `ads`,
-      ads.map((ad) => ad.listId),
-    );
-    this.logger.log(
-      `dbAds`,
-      dbAds.map((dbAd) => dbAd.listId),
-    );
-    this.logger.log(
-      `newAds`,
-      newAds.map((ad) => ad.listId),
+    //verifica se está no banco e não está mais anunciada
+    const deleteAds: Listing[] = dbAds.filter(
+      (dbAd) =>
+        !ads.find(
+          (ad: Listing) => dbAd.listId.toString() === ad.listId.toString(),
+        ),
     );
 
-    this.logger.log(`newAds`, newAds.length);
+    this.logger.log(`newAds Length: ${newAds.length}`);
 
-    //transform date
-    newAds.forEach((ad: any) => {
-      ad.date = new Date(ad.date * 1000);
-    });
+    //soft delete para os que não estão mais anunciados
+    if (deleteAds.length > 0) {
+      for (const deletAd of deleteAds) {
+        await this.listingsService.update(deletAd._id, {
+          deletedAt: new Date(),
+        });
+      }
+    }
 
-    this.logger.log(`newAds`, newAds.length);
+    this.logger.log(`deleteAds Length: ${deleteAds.length}`);
+
+    //add new ads
+    if (newAds.length > 0) {
+      //transform date
+      newAds.forEach((ad: any) => {
+        ad.date = new Date(ad.date * 1000);
+        ad.locationId = locationId;
+      });
+    }
 
     return await this.listingsService.createMany(newAds);
   }
 
-  async getListingsAllSlow() {
+  async getListingsAll() {
     this.logger.log(`Getting all listings...`);
     const neighbourhoods = Object.values(Neighbourhood);
 
     for (const neighbourhood of neighbourhoods) {
       this.logger.log(`Getting listings from: ${neighbourhood}`);
-      await this.getListingsSlow(`${this.entryPoint}/${neighbourhood}`);
+      await this.getListings(neighbourhood);
 
       await new Promise((resolve) => setTimeout(resolve, 5 * 1000));
     }
+
+    return 'All listings done';
   }
 
   async showProperties(url: string) {

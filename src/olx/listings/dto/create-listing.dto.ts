@@ -6,8 +6,11 @@ import {
   ValidateNested,
   IsArray,
   IsDate,
+  IsMongoId,
+  isDate,
 } from 'class-validator';
 import { Transform, Type } from 'class-transformer';
+import { Types } from 'mongoose';
 
 class ImageDto {
   @IsString()
@@ -92,8 +95,8 @@ export class CreateListingDto {
   @IsString()
   price: string;
 
-  @IsNumber()
-  listId: number;
+  @IsString()
+  listId: string;
 
   @IsString()
   lastBumpAgeSecs: string;
@@ -203,4 +206,12 @@ export class CreateListingDto {
 
   @IsBoolean()
   hasRealEstateHighlight: boolean;
+
+  @IsMongoId()
+  locationId: Types.ObjectId;
+
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  deletedAt: Date | null;
 }

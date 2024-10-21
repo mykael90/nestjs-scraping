@@ -23,40 +23,26 @@ export class OlxController {
   @Get('properties')
   showProperties(@Query('url') url: any) {
     this.logger.log(`param: ${url}`);
-
-    // return this.olxService.showProperties(
-    //   `${this.propertyEntryPoint}/${param}`,
-    // );
-
     return this.olxService.showProperties(url);
   }
 
   @Get('scrapingall')
-  getListingsAllSlow() {
+  getListingsAll() {
     this.logger.log(`Getting all listings...`);
-    return this.olxService.getListingsAllSlow();
+    return this.olxService.getListingsAll();
   }
 
   @Get(':param')
   showListings(@Param('param', new ParseEnumPipe(Neighbourhood)) param: any) {
     this.logger.log(`param: ${param}`);
 
-    return this.olxService.showListings(`${this.entryPoint}/${param}`);
+    return this.olxService.showListings(param);
   }
 
   @Get('scraping/:param')
   getListings(@Param('param', new ParseEnumPipe(Neighbourhood)) param: any) {
     this.logger.log(`param: ${param}`);
 
-    return this.olxService.getListings(`${this.entryPoint}/${param}`);
-  }
-
-  @Get('scrapingslow/:param')
-  getListingsSlow(
-    @Param('param', new ParseEnumPipe(Neighbourhood)) param: any,
-  ) {
-    this.logger.log(`param: ${param}`);
-
-    return this.olxService.getListingsSlow(`${this.entryPoint}/${param}`);
+    return this.olxService.getListings(param);
   }
 }

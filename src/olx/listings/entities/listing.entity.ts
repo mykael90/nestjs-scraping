@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 @Schema({ timestamps: true, collection: 'listings' })
 export class Listing extends Document {
+  _id: Types.ObjectId;
+
   @Prop()
   subject: string;
 
@@ -173,6 +175,12 @@ export class Listing extends Document {
 
   @Prop()
   hasRealEstateHighlight: boolean;
+
+  @Prop({ type: Types.ObjectId, ref: 'Location' })
+  locationId: Types.ObjectId;
+
+  @Prop({ type: Date, default: null })
+  deletedAt: Date | null;
 }
 
 export const ListingSchema = SchemaFactory.createForClass(Listing);

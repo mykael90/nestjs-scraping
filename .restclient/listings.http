@@ -1,5 +1,5 @@
 ### Variables
-@urlLocal = http://localhost:3000/listings/olx
+@urlLocal = http://localhost:3000/olx/local/listings
 @contentType = application/json
 
 ### POST listing
@@ -753,3 +753,6 @@ Content-Type: {{contentType}}
 
 ### GET all
 GET {{urlLocal}}
+
+### GET all
+GET {{urlLocal}}?neighborhood=capim-macio

@@ -1,9 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { CreateListingDto } from './dto/create-listing.dto';
 import { UpdateListingDto } from './dto/update-listing.dto';
-import { Listing } from './entities/listing.interface';
+import { Listing } from './entities/listing.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 
 @Injectable()
 export class ListingsService {
@@ -34,15 +34,23 @@ export class ListingsService {
     return await this.listingModel.find();
   }
 
-  findOne(id: number) {
+  async findAllByNeighbourhood(neighborhood: string) {
+    return await this.listingModel
+      .find()
+      .where('neighborhood')
+      .equals(neighborhood)
+      .populate('location')
+      .exec();
+  }
+  async findOne(id: Types.ObjectId) {
     return `This action returns a #${id} listing`;
   }
 
-  update(id: number, updateListingDto: UpdateListingDto) {
-    return `This action updates a #${id} listing`;
+  async update(id: Types.ObjectId, updateListingDto: UpdateListingDto) {
+    return await this.listingModel.findByIdAndUpdate(id, updateListingDto);
   }
 
-  remove(id: number) {
+  async remove(id: Types.ObjectId) {
     return `This action removes a #${id} listing`;
   }
 }

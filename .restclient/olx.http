@@ -3,13 +3,10 @@
 @contentType = application/json
 
 ### Show all from mae-luiza 
-GET {{urlLocal}}/mae-luiza
+GET {{urlLocal}}/nova-descoberta
 
 ### Get all from mae-luiza (show and persist on mongo)
-GET {{urlLocal}}/scraping/ribeira
-
-### Get all from mae-luiza (verifica cada registro se existe no banco antes de add)
-GET {{urlLocal}}/scrapingslow/dix-sept-rosado
+GET {{urlLocal}}/scraping/nova-descoberta
 
 ### Get all from all
 GET {{urlLocal}}/scrapingall

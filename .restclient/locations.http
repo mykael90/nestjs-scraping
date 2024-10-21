@@ -1,5 +1,5 @@
 ### Variables
-@urlLocal = http://localhost:3000/locations/olx
+@urlLocal = http://localhost:3000/olx/local/locations
 @contentType = application/json
 
 ### POST locations bulk

@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ListingSchema } from '../olx/listings/entities/listing.interface';
+import { ListingSchema } from '../olx/listings/entities/listing.entity';
 import { LocationSchema } from '../olx/locations/entities/location.entity';
 
 @Global()

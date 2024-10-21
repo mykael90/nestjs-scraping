@@ -19,6 +19,7 @@ export enum Neighbourhood {
   Neopolis = 'neopolis',
   NossaSenhoraDaApresentacao = 'nossa-senhora-da-apresentacao',
   NossaSenhoraDeNazaré = 'nossa-senhora-de-nazare',
+  NovaDescoberta = 'nova-descoberta',
   Nordeste = 'nordeste',
   Pajuçara = 'pajucara',
   // ParqueDasDunas = 'parque-das-dunas',
